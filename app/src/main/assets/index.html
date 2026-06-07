@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark light">
+  <title>Azkar TV Display</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body data-theme="dark-ambient">
+
+  <!-- Splash -->
+  <div id="splash">
+    <div style="text-align:center">
+      <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="var(--accent)"/>
+            <stop offset="1" stop-color="var(--accent-2)"/>
+          </linearGradient>
+        </defs>
+        <path d="M32 4 C18 4 8 16 8 32 C8 48 18 60 32 60 C25 54 21 44 21 32 C21 20 25 10 32 4 Z" fill="url(#sg)"/>
+        <circle cx="42" cy="20" r="3.4" fill="var(--accent)"/>
+      </svg>
+      <div class="name">Azkar TV Display</div>
+      <div class="ar">بِسْمِ اللَّهِ</div>
+    </div>
+  </div>
+
+  <!-- App shell -->
+  <div id="app" aria-hidden="false">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none">
+          <path d="M32 6 C19 6 10 17 10 32 C10 47 19 58 32 58 C26 53 22 43 22 32 C22 21 26 11 32 6 Z" fill="var(--accent)"/>
+          <circle cx="41" cy="21" r="3" fill="var(--accent-2)"/>
+        </svg>
+      </span>
+      <button class="section-pick" id="sectionPick" aria-haspopup="dialog" aria-label="Choose section">
+        <span class="eyebrow">Section</span>
+        <span class="current"><span id="curSection">Quranic Duas</span><span class="caret">▾</span></span>
+      </button>
+      <button class="icon-btn" id="openSettings" aria-label="Open settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Compact prayer ribbon -->
+    <div class="prayer-ribbon" id="prayerRibbon" role="status" aria-live="polite">
+      <span class="next" id="prayerNext">—</span>
+      <span class="dot"></span>
+      <span id="prayerCity">Riyadh</span>
+      <span class="approx" id="prayerApprox">approx</span>
+      <span class="time" id="prayerTime">--:--</span>
+    </div>
+
+    <!-- Reading stage -->
+    <main class="stage">
+      <article class="reader" id="reader" data-size="normal" aria-live="polite">
+        <div class="reader-scroll" id="readerScroll">
+          <div class="meta-row">
+            <span class="chip" id="mCategory">Quranic Duas</span>
+            <span class="chip type" id="mType">Dua</span>
+            <span class="chip repeat hidden" id="mRepeat">×1</span>
+            <span class="verify" id="mVerify"><span class="v-dot"></span><span id="mVerifyText">Authentic</span></span>
+          </div>
+          <h1 class="item-title" id="mTitle"></h1>
+          <div class="arabic" id="mArabic" dir="rtl"></div>
+          <div class="side-zone">
+            <p class="translit" id="mTranslit"></p>
+            <p class="translation" id="mTranslation"></p>
+            <div class="source-row"><span class="source" id="mSource"></span></div>
+          </div>
+        </div>
+        <div class="scroll-hint">scroll ⌄</div>
+      </article>
+    </main>
+
+    <!-- Bottom bar -->
+    <footer class="bottombar">
+      <button class="nav-btn" id="prevBtn" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="progress-wrap">
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="counter">
+          <span id="counterText">1 / 1</span>
+          <span class="auto-flag" id="autoFlag">AUTO</span>
+        </div>
+      </div>
+      <button class="nav-btn" id="nextBtn" aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </footer>
+  </div>
+
+  <!-- Scrim -->
+  <div class="scrim" id="scrim"></div>
+
+  <!-- Section picker sheet -->
+  <section class="sheet" id="sectionSheet" role="dialog" aria-modal="true" aria-label="Sections">
+    <div class="sheet-grab"></div>
+    <div class="sheet-head"><h2>Sections</h2>
+      <button class="icon-btn" data-close aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body"><div class="sec-list" id="secList"></div></div>
+  </section>
+
+  <!-- Settings sheet -->
+  <section class="sheet" id="settingsSheet" role="dialog" aria-modal="true" aria-label="Settings">
+    <div class="sheet-grab"></div>
+    <div class="sheet-head"><h2>Settings</h2>
+      <button class="icon-btn" data-close aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body" id="settingsBody"><!-- built by JS --></div>
+    <div class="sheet-foot">
+      <button class="btn-apply" id="applyBtn">Save &amp; Apply</button>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+{
+ "version_name": "Version 01",
+ "sections": [
+  {
+   "key": "quranic_duas",
+   "label": "Quranic Duas",
+   "type": "Dua",
+   "count": 52
+  },
+  {
+   "key": "daily_life_duas",
+   "label": "Daily Life Duas",
+   "type": "Dua",
+   "count": 38
+  },
+  {
+   "key": "dua",
+   "label": "Dua",
+   "type": "Dua",
+   "count": 20
+  },
+  {
+   "key": "morning_azkar",
+   "label": "Morning Azkar",
+   "type": "Azkar",
+   "count": 12
+  },
+  {
+   "key": "evening_azkar",
+   "label": "Evening Azkar",
+   "type": "Azkar",
+   "count": 6
+  },
+  {
+   "key": "after_salah_azkar",
+   "label": "After Salah Azkar",
+   "type": "Azkar",
+   "count": 10
+  },
+  {
+   "key": "before_sleep_azkar",
+   "label": "Before Sleep Azkar",
+   "type": "Azkar",
+   "count": 6
+  },
+  {
+   "key": "azkar",
+   "label": "Azkar",
+   "type": "Azkar",
+   "count": 9
+  },
+  {
+   "key": "protection_ruqyah",
+   "label": "Protection and Ruqyah",
+   "type": "Azkar",
+   "count": 13
+  },
+  {
+   "key": "istighfar",
+   "label": "Istighfar",
+   "type": "Istighfar",
+   "count": 15
+  },
+  {
+   "key": "salawat",
+   "label": "Salawat",
+   "type": "Salawat",
+   "count": 4
+  },
+  {
+   "key": "kalima",
+   "label": "Kalima",
+   "type": "Kalima",
+   "count": 6
+  }
+ ],
+ "cities": [
+  "auto",
+  "riyadh",
+  "jeddah",
+  "makkah",
+  "madinah",
+  "dammam"
+ ]
+}
